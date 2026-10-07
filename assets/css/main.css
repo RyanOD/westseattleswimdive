@@ -3582,7 +3582,8 @@ input, select, textarea {
 		overflow: hidden;
 		position: relative;
 		text-align: center;
-		background-image: url('../../../images/wshs_swim_1.jpg'); 
+		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                    url('../../../images/wshs_swim_1.jpg');
 	}
 
 		#banner h2 {
