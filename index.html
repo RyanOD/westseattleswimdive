@@ -11,6 +11,59 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+    /* Main navigation */
+    .navbar {
+      background-color: #172b4d;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 14px 20px;
+    }
+
+    .navbar a:hover {
+      background-color: #f2c94c;
+      color: #172b4d;
+    }
+
+    /* Dropdown container */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      min-width: 210px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .dropdown-content a {
+      color: #172b4d;
+      padding: 12px 16px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f2c94c;
+      color: #172b4d;
+    }
+
+    /* Show dropdown on hover or keyboard focus */
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+      display: block;
+    }
+  </style>
 	</head>
 	<body class="landing is-preload">
 
@@ -21,7 +74,7 @@
 					<header id="header" class="alt">
 						<h1><a href="index.html">West Seattle High School Swim and Dive</a></h1>
 						<nav id="nav">
-							<ul>
+							<!--<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
@@ -35,7 +88,25 @@
 									</div>
 								</li>
 							</ul>
-						</nav>
+						</nav>-->
+						  <nav class="navbar" aria-label="Main navigation">
+						    <a href="index.html">Home</a>
+						
+						    <div class="dropdown">
+						      <a href="girls-team.html" aria-haspopup="true">
+						        Girls Team &#9662;
+						      </a>
+						
+						      <div class="dropdown-content">
+						        <a href="practice-schedule.html">Practice Schedule</a>
+						        <a href="meet-schedule.html">Meet Schedule</a>
+						        <a href="coaches.html">Coaches</a>
+						        <a href="volunteering.html">Volunteering</a>
+						        <a href="team-store.html">Team Store</a>
+						        <a href="all-time-records.html">All-Time Records</a>
+						      </div>
+						    </div>
+						  </nav>
 					</header>
 
 				<!-- Banner -->
