@@ -3582,6 +3582,7 @@ input, select, textarea {
 		overflow: hidden;
 		position: relative;
 		text-align: center;
+		background-image: url('../../../images/wshs_swim_1.jpg'); 
 	}
 
 		#banner h2 {
