@@ -11,3 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: rgba(19, 41, 75, 0.8);
 	max-width: 15%;
 }
+
+h2.special{
+    text-align: center;
+}
