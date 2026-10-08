@@ -7,10 +7,6 @@ h1, h2, h3, h4, h5, h6 {
 				url('../../../images/wshs_swim_1.jpg');
 }
 
-#banner .inner h2 {
-	font-size: 2.5em
-}
-
 #menu {
 	background-color: rgba(19, 41, 75, 0.8);
 	max-width: 15%;
