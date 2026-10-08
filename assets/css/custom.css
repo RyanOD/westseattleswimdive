@@ -10,7 +10,8 @@ h1, h2, h3, h4, h5, h6 {
 article#main > header{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
 				url('../../../images/wshs_swim_1.jpg');
-    /*background-position-y: 0, -160px;*/
+    background-position-y: center;
+    background-size: auto;
 }
 #menu {
 	background-color: rgba(19, 41, 75, 0.8);
