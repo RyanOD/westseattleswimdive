@@ -13,6 +13,7 @@ article#main > header{
 }
 #menu {
 	background-color: rgba(19, 41, 75, 0.8);
+    background-position-y: -150px;
 }
 
 h2.special{
