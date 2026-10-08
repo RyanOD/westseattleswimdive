@@ -163,7 +163,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #F5C200;
+		color: #fff;
 		font-weight: 800;
 		letter-spacing: 0.225em;
 		line-height: 1em;
@@ -3481,7 +3481,7 @@ input, select, textarea {
 					}
 
 				}
-/*
+
 		#header nav {
 			height: inherit;
 			line-height: inherit;
@@ -3560,7 +3560,7 @@ input, select, textarea {
 				pointer-events: none;
 				opacity: 0;
 			}
-*/
+
 /* Banner */
 
 	#banner {
@@ -3582,8 +3582,6 @@ input, select, textarea {
 		overflow: hidden;
 		position: relative;
 		text-align: center;
-		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                    url('../../../images/wshs_swim_1.jpg');
 	}
 
 		#banner h2 {
