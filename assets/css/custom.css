@@ -6,10 +6,17 @@ h1, h2, h3, h4, h5, h6 {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
 				url('../../../images/wshs_swim_1.jpg');
 }
+@media screen and (max-width: 736px) {
 
+    #banner {
+        padding: 7em 3em 5em 3em ;
+        height: auto;
+        min-height: 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url('../../../images/wshs_swim_1.jpg');
+    }
+}
 article#main > header{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-				url('../../../images/wshs_swim_1.jpg');
     background-position-y: center;
     background-size: auto;
 }
