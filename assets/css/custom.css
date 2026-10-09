@@ -33,3 +33,7 @@ article#main > header{
 h2.special{
     text-align: center;
 }
+
+td{
+    font-size: 14px;
+}
