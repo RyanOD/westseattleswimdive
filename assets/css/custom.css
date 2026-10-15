@@ -69,7 +69,6 @@ td{
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s ease;
-    border: none;
 }
 
 .top-menu > li > a:hover {
@@ -104,6 +103,7 @@ td{
     white-space: nowrap;
     font-size: 0.9rem;
     transition: background-color 0.2s ease, color 0.2s ease;
+    border: none;
 }
 
 .top-menu .dropdown li a:hover {
