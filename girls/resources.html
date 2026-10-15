@@ -21,20 +21,41 @@
 				<!-- Header -->
 					<header id="header">
 						<h1><a href="https://www.westseattleswimdive.com">West Seattle Swim & Dive</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-                                            <li><a href="/">Home</a></li>
-											<li><a href="schedule.html">Schedule</a></li>
-											<li><a href="qualifying-times.html">Qualifying Times</a></li>
-											<li><a href="resources.html">Resources</a></li>
-										</ul>
-									</div>
+						<nav class="custom-nav">
+							<!-- Desktop Navigation Menu -->
+							<ul class="desktop-menu">
+								<li><a href="/">Home</a></li>
+								<li class="dropdown-parent">
+									<a href="/girls/qualifying-times.html">Girls Team ▾</a>
+									<ul class="dropdown-menu">
+										<li><a href="/girls/schedule.html">Schedule & Results</a></li>
+										<li><a href="/girls/qualifying-times.html">Qualifying Times</a></li>
+										<li><a href="/girls/records.html">Records</a></li>
+									</ul>
 								</li>
+								<li><a href="/resources.html">Resources</a></li>
+								<li><a href="https://www.instagram.com/wshsswimanddive/" target="_blank">Instagram</a></li>
 							</ul>
+
+							<!-- Mobile Hamburger Menu (Built with native <details> for 100% reliability) -->
+							<details class="mobile-menu-wrap">
+								<summary class="hamburger-toggle" aria-label="Menu">
+									<span></span>
+									<span></span>
+									<span></span>
+								</summary>
+								<div class="mobile-dropdown-content">
+									<a href="/">Home</a>
+									<div class="mobile-subgroup">
+										<span class="mobile-section-title">Girls Team</span>
+										<a href="/girls/schedule.html">Schedule & Results</a>
+										<a href="/girls/qualifying-times.html">Qualifying Times</a>
+										<a href="/girls/records.html">Records</a>
+									</div>
+									<a href="/resources.html">Resources</a>
+									<a href="https://www.instagram.com/wshsswimanddive/" target="_blank">Instagram</a>
+								</div>
+							</details>
 						</nav>
 					</header>
 
