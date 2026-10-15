@@ -40,194 +40,179 @@ td{
 
 /* Menu */
 
-/* --- Base Header Fixes --- */
+/* --- Core Nav Container --- */
+.custom-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 9999;
+}
+
+/* Force header to allow elements to overflow/display correctly */
 header {
     overflow: visible !important;
 }
 
-.site-nav {
+/* --- Desktop Menu Styles --- */
+.desktop-menu {
     display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
     align-items: center;
+}
+
+.desktop-menu li {
     position: relative;
-    z-index: 10000;
 }
 
-/* Hide the checkbox toggle control */
-.menu-toggle-checkbox {
-    display: none;
-}
-
-/* Hide Hamburger Icon on Desktop */
-.hamburger-btn {
-    display: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 10001;
-}
-
-.hamburger-line {
+.desktop-menu a {
+    text-decoration: none;
+    font-weight: 600;
+    color: inherit;
     display: block;
-    width: 25px;
-    height: 3px;
-    margin: 4px 0;
-    background-color: currentColor; /* Matches header text color */
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    padding: 0.5rem 0.75rem;
 }
 
-/* --- Desktop Layout (Min-Width: 769px) --- */
-@media screen and (min-width: 769px) {
-    .top-menu {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
+.desktop-menu a:hover {
+    color: #007acc;
+}
+
+/* Desktop Hover Sub-menu */
+.desktop-menu .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    min-width: 180px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.2s ease-in-out;
+}
+
+.desktop-menu .dropdown-menu li a {
+    color: #333333;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.desktop-menu .dropdown-menu li a:hover {
+    background: #f4f6f8;
+    color: #007acc;
+}
+
+/* Reveal dropdown on hover */
+.desktop-menu .dropdown-parent:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Hide mobile elements on desktop */
+.mobile-menu-wrap {
+    display: none;
+}
+
+/* --- Mobile Menu Styles (Screens <= 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Hide desktop menu on mobile */
+    .desktop-menu {
+        display: none;
     }
 
-    .top-menu li {
+    /* Enable mobile dropdown wrap */
+    .mobile-menu-wrap {
+        display: block;
         position: relative;
     }
 
-    .top-menu > li > a {
-        display: block;
-        padding: 0.5rem 0.75rem;
-        color: inherit;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.2s ease;
-    }
-
-    .top-menu > li > a:hover {
-        color: #007acc;
-    }
-
-    /* Desktop Hover Dropdown */
-    .top-menu .dropdown {
-        list-style: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #ffffff;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-        border-radius: 4px;
-        padding: 0.5rem 0;
-        min-width: 180px;
-        margin: 0;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: all 0.25s ease-in-out;
-    }
-
-    .top-menu .dropdown li a {
-        display: block;
-        padding: 0.5rem 1rem;
-        color: #333333;
-        text-decoration: none;
-        white-space: nowrap;
-        font-size: 0.9rem;
-        transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .top-menu .dropdown li a:hover {
-        background-color: #f0f4f8;
-        color: #007acc;
-    }
-
-    .top-menu .has-dropdown:hover .dropdown {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-}
-
-/* --- Mobile Hamburger Menu (Max-Width: 768px) --- */
-@media screen and (max-width: 768px) {
-    .site-nav {
-        justify-content: flex-end;
-        width: 100%;
-    }
-
-    /* Display Hamburger Button */
-    .hamburger-btn {
+    /* Hamburger Button */
+    .hamburger-toggle {
+        list-style: none; /* Removes default disclosure triangle */
+        cursor: pointer;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        width: 30px;
+        height: 22px;
+        padding: 0;
+        background: transparent;
     }
 
-    /* Mobile Drawer (Hidden by default) */
-    .top-menu {
-        list-style: none;
+    /* Hide default marker for Safari/Chrome */
+    .hamburger-toggle::-webkit-details-marker {
+        display: none;
+    }
+
+    .hamburger-toggle span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: currentColor;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    /* Mobile Dropdown Panel Container */
+    .mobile-dropdown-content {
         position: absolute;
-        top: 100%;
+        top: calc(100% + 15px);
         right: 0;
-        left: 0;
-        background-color: #1f2429; /* Dark background matching typical template footers/headers */
-        padding: 1rem;
-        margin: 0.5rem 0 0 0;
+        width: 240px;
+        background: #1f2429; /* Matches dark template theme */
+        color: #ffffff;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         border-radius: 6px;
-        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        
-        /* Smooth Slide/Fade transition */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     }
 
-    /* Reveal Mobile Menu when Checkbox is Checked */
-    .menu-toggle-checkbox:checked ~ .top-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    /* Animate Hamburger Icon into an "X" when open */
-    .menu-toggle-checkbox:checked ~ .hamburger-btn .hamburger-line:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-    }
-    .menu-toggle-checkbox:checked ~ .hamburger-btn .hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle-checkbox:checked ~ .hamburger-btn .hamburger-line:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Mobile Links Styling */
-    .top-menu > li > a {
-        display: block;
-        padding: 0.75rem 1rem;
+    .mobile-dropdown-content a {
         color: #ffffff;
         text-decoration: none;
-        font-weight: 600;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    /* Mobile Sub-menus (Accordion Style inside Drawer) */
-    .top-menu .dropdown {
-        list-style: none;
-        padding-left: 1rem;
-        margin: 0;
-        background: rgba(0, 0, 0, 0.2);
+        padding: 0.5rem 0.75rem;
+        display: block;
+        font-weight: 500;
         border-radius: 4px;
     }
 
-    .top-menu .dropdown li a {
-        display: block;
-        padding: 0.5rem 1rem;
-        color: #cccccc;
-        text-decoration: none;
-        font-size: 0.9rem;
-        border: none;
+    .mobile-dropdown-content a:hover {
+        background: rgba(255,255,255,0.1);
     }
 
-    .top-menu .dropdown li a:hover {
-        color: #ffffff;
+    .mobile-subgroup {
+        border-top: 1px solid rgba(255,255,255,0.15);
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        margin: 0.25rem 0;
+        padding: 0.25rem 0;
+    }
+
+    .mobile-section-title {
+        display: block;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+        color: #88b3ef;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+    }
+
+    .mobile-subgroup a {
+        padding-left: 1.25rem;
+        font-size: 0.9rem;
+        color: #cccccc;
     }
 }
