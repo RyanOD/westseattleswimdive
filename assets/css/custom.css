@@ -54,7 +54,7 @@ header {
     overflow: visible !important;
 }
 
-header nav {
+#header nav {
     right: 1.25em;
 }
 
