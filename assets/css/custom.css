@@ -116,6 +116,10 @@ header {
     color: #007acc;
 }
 
+.desktop-menu .dropdown-menu li a {
+    border: none;
+}
+
 /* Reveal dropdown on hover */
 .desktop-menu .dropdown-parent:hover .dropdown-menu {
     opacity: 1;
