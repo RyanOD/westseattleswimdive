@@ -54,6 +54,10 @@ header {
     overflow: visible !important;
 }
 
+header nav {
+    right: 1.25em;
+}
+
 /* --- Desktop Menu Styles --- */
 .desktop-menu {
     display: flex;
