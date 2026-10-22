@@ -39,7 +39,7 @@ td{
 }
 
 /* Menu */
-/* Base Header & Nav Layout */
+/* --- Desktop Styles (Default) --- */
 #header {
     display: flex;
     justify-content: space-between;
@@ -61,9 +61,11 @@ td{
 #nav {
     display: flex;
     align-items: center;
+    position: relative; /* Crucial for anchoring mobile menu */
 }
 
-#nav ul {
+/* Desktop Main Menu List */
+#nav > ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -87,11 +89,11 @@ td{
     color: #3b82f6;
 }
 
-/* Desktop Dropdown (Smooth Fade & Slide) */
-#nav li ul {
+/* Desktop Dropdown ("Girls Team" sub-menu) */
+#nav li.submenu > ul {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 0; /* Standard left alignment for desktop */
     background: #222;
     min-width: 180px;
     flex-direction: column;
@@ -108,7 +110,7 @@ td{
     z-index: 100;
 }
 
-#nav li:hover > ul {
+#nav li.submenu:hover > ul {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -118,74 +120,77 @@ td{
 /* Hide Hamburger Button on Desktop */
 .nav-toggle {
     display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 32px;
-    height: 24px;
-}
-
-/* Standard Hamburger Icon Bars */
-.hamburger-bar {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 2px;
 }
 
 
 /* --- Mobile Responsive Styles (736px and down) --- */
 @media screen and (max-width: 736px) {
     .nav-toggle {
-        display: flex; /* Shows hamburger on mobile */
+        display: flex;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 32px;
+        height: 24px;
     }
 
-    /* Hide main menu by default on mobile */
-    #nav ul {
+    .hamburger-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    /* Mobile Main Menu Container (Anchored to right, fixed width) */
+    #nav > ul {
         display: none;
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
+        right: 0;          /* Locked to the right side of the screen */
+        left: auto;
+        width: 240px;      /* Safe dropdown width */
         background: #1a1a1a;
         flex-direction: column;
         align-items: stretch;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        box-sizing: border-box;
+        z-index: 9999;
     }
 
-    /* Force display when toggled open */
+    /* Force display when toggled open on mobile */
     #nav.is-visible > ul {
         display: flex !important;
     }
 
     #nav li {
         width: 100%;
-        text-align: center;
+        text-align: left;
         border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     #nav a {
-        padding: 1rem;
+        padding: 0.9rem 1.2rem;
     }
 
-    /* Mobile Submenu Behavior */
-    #nav li ul {
+    /* Mobile Submenu ("Girls Team" sub-items) */
+    #nav li.submenu > ul {
         position: static;
         box-shadow: none;
-        background: #222;
+        background: #252525;
+        width: 100%;
         opacity: 1;
         visibility: visible;
         transform: none;
         pointer-events: auto;
-        display: none; /* Submenu starts collapsed */
+        display: none; /* Collapsed by default on mobile */
     }
 
-    /* Expand mobile submenu when active */
-    #nav li.active > ul {
+    /* Expand mobile submenu when tapped */
+    #nav li.submenu.active > ul {
         display: flex !important;
     }
 }
