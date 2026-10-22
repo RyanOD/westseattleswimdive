@@ -39,188 +39,153 @@ td{
 }
 
 /* Menu */
-
-/* --- Core Nav Container --- */
-.custom-nav {
+/* Base Header & Nav Layout */
+#header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    background: #111;
+    color: #fff;
     position: relative;
-    z-index: 9999;
+    z-index: 1000;
 }
 
-/* Force header to allow elements to overflow/display correctly */
-header {
-    overflow: visible !important;
+#header h1 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
-#header nav {
-    right: 1.25em;
-}
-
-/* --- Desktop Menu Styles --- */
-.desktop-menu {
+#nav {
     display: flex;
+    align-items: center;
+}
+
+#nav ul {
     list-style: none;
-    gap: 1.5rem;
     margin: 0;
     padding: 0;
-    align-items: center;
+    display: flex;
 }
 
-.desktop-menu li {
+#nav li {
     position: relative;
 }
 
-.desktop-menu a {
-    text-decoration: none;
-    font-weight: 600;
-    color: inherit;
+#nav a {
     display: block;
-    padding: 0.5rem 0.75rem;
-}
-
-.desktop-menu a:hover {
-    color: #007acc;
-}
-
-/* Desktop Hover Sub-menu */
-.desktop-menu .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #ffffff;
-    list-style: none;
-    padding: 0.5rem 0;
-    margin: 0;
-    min-width: 180px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    border-radius: 0 0 4px 4px;
-    
-    /* Hidden by default */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(8px);
-    transition: all 0.2s ease-in-out;
-}
-
-.desktop-menu .dropdown-menu li a {
-    color: #333333;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    white-space: nowrap;
-}
-
-.desktop-menu .dropdown-menu li a:hover {
-    background: #f4f6f8;
-    color: #007acc;
-}
-
-.desktop-menu .dropdown-menu li a {
+    padding: 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s;
     border: none;
 }
 
-/* Reveal dropdown on hover */
-.desktop-menu .dropdown-parent:hover .dropdown-menu {
+#nav a:hover {
+    color: #3b82f6;
+}
+
+/* Desktop Dropdown (Smooth Fade & Slide) */
+#nav li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #222;
+    min-width: 180px;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+}
+
+#nav li:hover > ul {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    pointer-events: auto;
 }
 
-/* Hide mobile elements on desktop */
-.mobile-menu-wrap {
+/* Hide Hamburger Button on Desktop */
+.nav-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
 }
 
-/* --- Mobile Menu Styles (Screens <= 768px) --- */
-@media screen and (max-width: 768px) {
-    /* Hide desktop menu on mobile */
-    .desktop-menu {
+/* Standard Hamburger Icon Bars */
+.hamburger-bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+
+/* --- Mobile Responsive Styles (736px and down) --- */
+@media screen and (max-width: 736px) {
+    .nav-toggle {
+        display: flex; /* Shows hamburger on mobile */
+    }
+
+    /* Hide main menu by default on mobile */
+    #nav ul {
         display: none;
-    }
-
-    /* Enable mobile dropdown wrap */
-    .mobile-menu-wrap {
-        display: block;
-        position: relative;
-    }
-
-    /* Hamburger Button */
-    .hamburger-toggle {
-        list-style: none; /* Removes default disclosure triangle */
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 22px;
-        padding: 0;
-        background: transparent;
-    }
-
-    /* Hide default marker for Safari/Chrome */
-    .hamburger-toggle::-webkit-details-marker {
-        display: none;
-    }
-
-    .hamburger-toggle span {
-        display: block;
-        height: 3px;
-        width: 100%;
-        background-color: currentColor;
-        border-radius: 2px;
-        transition: 0.3s;
-    }
-
-    /* Mobile Dropdown Panel Container */
-    .mobile-dropdown-content {
         position: absolute;
-        top: calc(100% + 15px);
-        right: 0;
-        width: 240px;
-        background: #1f2429; /* Matches dark template theme */
-        color: #ffffff;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        border-radius: 6px;
-        padding: 1rem;
-        display: flex;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #1a1a1a;
         flex-direction: column;
-        gap: 0.5rem;
+        align-items: stretch;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
     }
 
-    .mobile-dropdown-content a {
-        color: #ffffff;
-        text-decoration: none;
-        padding: 0.5rem 0.75rem;
-        display: block;
-        font-weight: 500;
-        border-radius: 4px;
+    /* Force display when toggled open */
+    #nav.is-visible > ul {
+        display: flex !important;
     }
 
-    .mobile-dropdown-content a:hover {
-        background: rgba(255,255,255,0.1);
+    #nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    .mobile-subgroup {
-        border-top: 1px solid rgba(255,255,255,0.15);
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-        margin: 0.25rem 0;
-        padding: 0.25rem 0;
+    #nav a {
+        padding: 1rem;
     }
 
-    .mobile-section-title {
-        display: block;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.85rem;
-        color: #88b3ef;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 700;
+    /* Mobile Submenu Behavior */
+    #nav li ul {
+        position: static;
+        box-shadow: none;
+        background: #222;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        display: none; /* Submenu starts collapsed */
     }
 
-    .mobile-subgroup a {
-        padding-left: 1.25rem;
-        font-size: 0.9rem;
-        color: #cccccc;
+    /* Expand mobile submenu when active */
+    #nav li.active > ul {
+        display: flex !important;
     }
 }
