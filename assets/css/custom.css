@@ -138,6 +138,7 @@ td{
         justify-content: space-between;
         width: 32px;
         height: 24px;
+        margin-right: 18px;
     }
 
     .hamburger-bar {
