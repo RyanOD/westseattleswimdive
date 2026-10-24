@@ -163,6 +163,7 @@ td{
         box-sizing: border-box;
         z-index: 9999;
         margin-right: 20px;
+        opacity: 0.5;
     }
 
     /* Force display when toggled open on mobile */
@@ -186,12 +187,11 @@ td{
         box-shadow: none;
         background: #252525;
         width: 100%;
-        opacity: 0.5;
+        opacity: 0;
         visibility: visible;
         transform: none;
         pointer-events: auto;
         display: none; /* Collapsed by default on mobile */
-        margin-right: 20px;
     }
 
     /* Expand mobile submenu when tapped */
