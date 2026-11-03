@@ -208,3 +208,18 @@ td{
         display: flex !important;
     }
 }
+
+/* Animated easing of top-10 drop downs */
+details {
+  background: gainsboro;
+  padding: 10px;
+}
+
+details summary {
+  cursor: pointer;
+  transition: margin 150ms ease-out;
+}
+
+details[open] summary {
+  margin-bottom: 10px;
+}
