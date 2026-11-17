@@ -162,6 +162,10 @@ td{
         border-radius: 2px;
     }
 
+    #header nav > ul > li > a {
+        font-size: 0.9em;
+    }
+
     /* Mobile Main Menu Container (Anchored to right, fixed width) */
     #nav > ul {
         display: none;
