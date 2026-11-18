@@ -104,12 +104,12 @@ td{
     color: #3b82f6;
 }
 
-/* Desktop Dropdown ("Girls Team" sub-menu) */
+/* Desktop Dropdown (top level nav sub-menu) */
 #nav li.submenu > ul {
     position: absolute;
     top: 100%;
     left: 0; /* Standard left alignment for desktop */
-    background: #222;
+    background: rgb(34 34 34 / 90%)
     min-width: 180px;
     flex-direction: column;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
