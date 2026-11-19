@@ -109,7 +109,7 @@ td{
     position: absolute;
     top: 100%;
     left: 0; /* Standard left alignment for desktop */
-    background: rgb(34 34 34 / 90%)
+    background: rgb(34 34 34 / 90%);
     min-width: 180px;
     flex-direction: column;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
